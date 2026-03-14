@@ -1,30 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Welcome Baby Boy</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome Baby Boy</title>
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Amiri&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <!-- Intro Screen -->
-    <section id="intro">
-        <div class="intro-content">
-            <h1>Welcome to Our Little Miracle</h1>
-            <p>A beautiful new chapter begins...</p>
-            <button id="enterBtn">Tap to Enter</button>
+<!-- Scene 1 -->
+<section id="scene1" class="scene active">
+
+    <div class="panel top-panel"></div>
+    <div class="panel bottom-panel"></div>
+
+    <div class="seal" id="seal">
+        <div class="seal-left">Tap to Open</div>
+        <div class="seal-right"></div>
+    </div>
+
+</section>
+
+<!-- Scene 2 -->
+<section id="scene2" class="scene envelope-scene">
+
+    <div class="envelope">
+
+        <div class="flap flap-top" id="flapTop"></div>
+        <div class="flap flap-left"></div>
+        <div class="flap flap-right"></div>
+        <div class="flap flap-bottom"></div>
+
+        <div class="envelope-content">
+
+            <div class="dua-top">
+                <div class="arabic">ما شاء الله</div>
+                <div class="translation">Masha Allah</div>
+            </div>
+
+            <div class="wax-seal">بسم الله</div>
+
+            <div class="dua-bottom">
+                <div class="arabic">تبارك الله</div>
+                <div class="translation">Tabarak Allah</div>
+            </div>
+
         </div>
-    </section>
 
-    <!-- Main Content -->
-    <section id="mainContent" class="hidden">
+    </div>
 
-        <div class="announcement">
+</section>
+
+<!-- Scene 3 -->
+<section id="scene3" class="scene reveal-scene">
+
+    <div class="announcement">
             <h2>Baby Boy [Surname]</h2>
             <p class="date">Expected: [Due Date]</p>
 
@@ -42,11 +75,39 @@
             </div>
         </div>
 
-    </section>
+</section>
 
-    <!-- Confetti Library -->
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-    <script src="script.js"></script>
 
+<section class="scroll-section parents">
+
+    <h2>With Love From</h2>
+
+    <p class="names">
+        Parents: [Parent Names]
+    </p>
+
+    <p class="message">
+        We are filled with gratitude and joy as we welcome this new blessing into our lives.
+    </p>
+
+</section>
+
+
+<section class="scroll-section grandparents">
+
+    <h2>Grandparents</h2>
+
+    <p class="names">
+        [Grandparent Names]
+    </p>
+
+    <p class="message">
+        Our hearts overflow with happiness as our family grows with this precious little soul.
+    </p>
+
+</section>
+
+<div class="flash" id="flash"></div>
+<script src="script.js"></script>
 </body>
 </html>

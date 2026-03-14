@@ -1,66 +1,322 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-body {
-    font-family: 'Poppins', sans-serif;
-    overflow-x: hidden;
+body{
+    font-family:'Poppins',sans-serif;
+    overflow:hidden;
 }
 
-/* Pastel Gradient Background */
-#intro {
-    height: 100vh;
-    background: linear-gradient(135deg, #ffd6e8, #e0f7fa, #fff3cd);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 20px;
-    transition: opacity 1s ease;
+/* ---------- Scenes ---------- */
+
+.scene{
+    position:relative;
+    width:100%;
+    height:100vh;
+    display:none;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background:linear-gradient(135deg,#ffd6e8,#e0f7fa,#fff3cd);
 }
 
-.intro-content h1 {
-    font-size: 2.2rem;
-    margin-bottom: 15px;
-    font-weight: 600;
-    color: #444;
+.scene.active{
+    display:flex;
 }
 
-.intro-content p {
-    margin-bottom: 25px;
-    color: #666;
+/* ===================================================== */
+/* ===================== SCENE 1 ======================= */
+/* ===================================================== */
+
+#scene1{
+    perspective:1400px;
 }
 
-button {
-    padding: 12px 28px;
-    border: none;
-    border-radius: 30px;
-    background: #ffffff;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+/* Panels */
+
+.panel{
+    position:absolute;
+    width:100%;
+    height:50%;
+    background:rgba(255,255,255,0.55);
+    backdrop-filter:blur(10px);
+    transition:transform 1s ease;
 }
 
-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+.top-panel{
+    top:0;
+    transform-origin:top;
 }
 
-/* Hidden Class */
-.hidden {
-    display: none;
+.bottom-panel{
+    bottom:0;
+    transform-origin:bottom;
 }
 
-/* Main Section */
-#mainContent {
-    min-height: 100vh;
-    background: linear-gradient(135deg, #fff3cd, #e1f5fe, #fce4ec);
-    padding: 60px 20px;
-    text-align: center;
-    animation: fadeIn 1.2s ease forwards;
+/* Rectangular seal */
+
+.seal{
+    position:absolute;
+    display:flex;
+    cursor:pointer;
+    z-index:10;
 }
+
+.seal-left,
+.seal-right{
+    background:#ffd6e8;
+    padding:14px 28px;
+    font-weight:500;
+    border-radius:6px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+    transition:transform 0.6s ease,opacity 0.6s ease;
+}
+
+/* Rip animation */
+
+.ripped .seal-left{
+    transform:translate(-25px,-20px) rotate(-25deg);
+    opacity:0;
+}
+
+.ripped .seal-right{
+    transform:translate(25px,20px) rotate(25deg);
+    opacity:0;
+}
+
+/* Panel flip */
+
+.flip-top{
+    transform:rotateX(95deg);
+}
+
+.flip-bottom{
+    transform:rotateX(-95deg);
+}
+
+/* ===================================================== */
+/* ===================== SCENE 2 ======================= */
+/* ===================================================== */
+
+/* ===================================================== */
+/* ===================== SCENE 2 ======================= */
+/* ===================================================== */
+
+.envelope{
+    position:relative;
+    width:100%;
+    height:100%;
+}
+
+/* shared paper texture */
+
+.flap{
+    position:absolute;
+    width:100%;
+    height:100%;
+
+    background:
+        url("paper-texture.jpg"),
+        linear-gradient(#f6ead7,#f2dcc4);
+
+    background-size:cover;
+
+    box-shadow:0 3px 8px rgba(0,0,0,0.15);
+}
+
+/* bottom flap */
+
+.flap-bottom{
+    clip-path:polygon(0 100%,50% 55%,100% 100%);
+    z-index:1;
+    filter:brightness(0.96);
+}
+
+/* left flap */
+
+.flap-left{
+    clip-path:polygon(0 0,50% 55%,0 100%);
+    z-index:2;
+    filter:brightness(0.96);
+}
+
+/* right flap */
+
+.flap-right{
+    clip-path:polygon(100% 0,50% 55%,100% 100%);
+    z-index:2;
+    filter:brightness(0.96);
+}
+
+/* top flap */
+
+.flap-top{
+    clip-path:polygon(0 0,100% 0,50% 55%);
+    transform-origin:top center;
+    transition:transform 1s ease;
+    z-index:3;
+}
+
+/* opening animation */
+
+.flap-open{
+    transform:rotateX(160deg);
+}
+
+/* envelope content */
+
+.envelope-content{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    text-align:center;
+    z-index:10;
+}
+
+/* Duas */
+
+.arabic{
+    font-family:'Amiri',serif;
+    font-size:2.2rem;
+}
+
+.translation{
+    margin-top:6px;
+    font-size:1rem;
+}
+
+/* Wax seal */
+
+.wax-seal{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    background:#b94a48;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:1.2rem;
+    margin:40px auto;
+    box-shadow:0 8px 25px rgba(0,0,0,0.25);
+}
+
+/* ===================================================== */
+/* ===================== FLASH ========================= */
+/* ===================================================== */
+
+.flash{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:white;
+    opacity:0;
+    pointer-events:none;
+    z-index:999;
+}
+
+.flash.active{
+    animation:flashAnim 1s ease;
+}
+
+@keyframes flashAnim{
+    0%{opacity:0;}
+    30%{opacity:1;}
+    70%{opacity:1;}
+    100%{opacity:0;}
+}
+
+/* ===================================================== */
+/* ===================== SCENE 3 ======================= */
+/* ===================================================== */
+
+.reveal-scene{
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#fff3cd,#fdeff6,#e0f7fa);
+}
+
+/* Baby intro */
+
+.baby-intro{
+    text-align:center;
+    padding:40px;
+}
+
+.baby-name{
+    font-size:2.6rem;
+    font-weight:600;
+    margin-bottom:15px;
+    opacity:0;
+    transform:scale(0.85);
+    animation:nameReveal 1.5s ease forwards;
+    animation-delay:0.6s;
+}
+
+.due-date{
+    font-size:1.1rem;
+    margin-bottom:30px;
+    color:#666;
+}
+
+.baby-photo{
+    width:220px;
+    height:220px;
+    object-fit:cover;
+    border-radius:50%;
+    box-shadow:0 10px 30px rgba(0,0,0,0.15);
+    opacity:0;
+    animation:photoReveal 1.2s ease forwards;
+    animation-delay:1.4s;
+}
+
+@keyframes nameReveal{
+    from{opacity:0; transform:scale(0.85);}
+    to{opacity:1; transform:scale(1);}
+}
+
+@keyframes photoReveal{
+    from{opacity:0; transform:translateY(20px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+/* ===================================================== */
+/* ================= SCROLL SECTIONS =================== */
+/* ===================================================== */
+
+.scroll-section{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:60px 20px;
+    background:linear-gradient(135deg,#fdeff6,#e0f7fa);
+}
+
+.scroll-section h2{
+    font-size:2rem;
+    margin-bottom:20px;
+}
+
+.names{
+    font-size:1.2rem;
+    margin-bottom:15px;
+}
+
+.message{
+    max-width:500px;
+    line-height:1.6;
+}
+
+
 
 .announcement h2 {
     font-size: 2rem;
@@ -92,16 +348,4 @@ button:hover {
     max-width: 400px;
     margin: 0 auto;
     background: rgba(255,255,255,0.6);
-}
-
-/* Animations */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
