@@ -100,9 +100,6 @@ body{
 /* ===================== SCENE 2 ======================= */
 /* ===================================================== */
 
-/* ===================================================== */
-/* ===================== SCENE 2 ======================= */
-/* ===================================================== */
 
 .envelope{
     position:relative;
@@ -348,4 +345,50 @@ body{
     max-width: 400px;
     margin: 0 auto;
     background: rgba(255,255,255,0.6);
+}
+
+/* ================= MOBILE ENVELOPE FIX ================= */
+
+@media (max-width:768px){
+
+    /* hide the envelope edges outside the screen */
+    #scene2{
+        overflow:hidden;
+    }
+
+    .wax-seal{
+        margin-top:80px;
+    }
+
+    .envelope{
+
+        position:absolute;
+
+        width:180vmax;
+        height:180vmax;
+
+        left:50%;
+        top:50%;
+
+        transform:translate(-50%,-50%);
+    }
+
+    /* keep triangles centered */
+
+    .flap-top{
+        clip-path:polygon(0 0,100% 0,50% 55%);
+    }
+
+    .flap-bottom{
+        clip-path:polygon(0 100%,50% 55%,100% 100%);
+    }
+
+    .flap-left{
+        clip-path:polygon(0 0,50% 55%,0 100%);
+    }
+
+    .flap-right{
+        clip-path:polygon(100% 0,50% 55%,100% 100%);
+    }
+
 }
