@@ -40,9 +40,9 @@ body{
     position:absolute;
     width:100%;
     height:50%;
-    background:rgba(255,255,255,0.55);
-    backdrop-filter:blur(10px);
+    background:rgba(255,255,255,0.35); /* lighter */
     transition:transform 1s ease;
+    z-index:2;
 }
 
 .top-panel{
@@ -96,6 +96,13 @@ body{
     transform:rotateX(-95deg);
 }
 
+.background-envelope{
+    position:absolute;
+    width:100%;
+    height:100%;
+    z-index:0;
+}
+
 /* ===================================================== */
 /* ===================== SCENE 2 ======================= */
 /* ===================================================== */
@@ -105,6 +112,8 @@ body{
     position:relative;
     width:100%;
     height:100%;
+    perspective:1200px;          /* NEW */
+    transform-style:preserve-3d; /* NEW */
 }
 
 /* shared paper texture */
@@ -154,12 +163,14 @@ body{
     transform-origin:top center;
     transition:transform 1s ease;
     z-index:3;
+    backface-visibility:hidden; /* NEW */
 }
 
 /* opening animation */
 
 .flap-open{
-    transform:rotateX(160deg);
+    transform:rotateX(145deg) translateY(-10px);
+    box-shadow:0 20px 40px rgba(0,0,0,0.25);
 }
 
 /* envelope content */
